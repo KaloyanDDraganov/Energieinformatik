@@ -382,7 +382,7 @@ $$
 
 _It is impossible to build a cyclically operating chiller whose exclusive effect is to completely transmit a certain heat quantity from a single colder reservoir to a warmer reservoir._
 
-### Heap Pump
+### Heat Pump
 
 $$
 \epsilon_{HP} = \frac{|Q_w|}{W}
