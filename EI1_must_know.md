@@ -3,6 +3,10 @@
 
 # Energy Informatics 1
 
+The following document represents a summary of the lecture _Energy Informatics 1_ by Professor Dr. Veit Hanenmeyer at the _Institut für Automation und angewandte Informatik (IAI)_ of KIT.
+
+
+
 ## Introduction
 
 ### Energy Trilemma
