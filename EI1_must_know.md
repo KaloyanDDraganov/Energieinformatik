@@ -1450,7 +1450,7 @@ Fast runner:
 
 **NB!:** Double rotor diameter means **quadruple** power
 
-**NB!:** (**3. Power Law**) Double wind speed meand **eightfold** power
+**NB!:** (**3. Power Law**) Double wind speed means **eightfold** power
 
 $\implies$ wind power plants are getting bigger and higher
 
@@ -1460,5 +1460,258 @@ $\implies$ wind power plants are getting bigger and higher
 - Stall control (passive)
 - Azimuth control (active)
   
+#### Generator system
 
+```mermaid
+stateDiagram-v2
 
+    state "Rotor" as R
+    state "Transmission" as T
+    state "Generator" as G
+    state "Frequency Converter" as FC
+    state "Transformer" as Tr
+    state "Power Grid" as PG
+
+    R --> T
+    T --> G
+    G --> FC
+    FC --> Tr
+    Tr --> PG
+```
+- Frequency Converter - converts the variable frequency of the generator into the fixed frequency of the grid
+- Transformer - Converts the resulting voltage of the generator to the voltage needed for the grid and provides galvanic isolation of the two systems
+
+#### Wind energy in Germany
+
+- ca. 9% of total electricity generation (2014)
+- ca. 25% of total electricity generation (2022)
+
+- Conditions for installing new capacity (wind velocity and potential full load hours) best in the NW, on the coasts.
+
+### Hydroelectric Power Plants
+
+#### HPP in Germany
+
+- 20% share in electricity generation from renewable energies
+- greatest potential southern states (pre-alpine region)
+- modernization and reactivation of available plants (power increase)
+
+#### Water Law
+
+- Sufficient minimum water flow
+- Maintenance of river continuity
+- Appropriate measures to protect the fish population
+
+#### Types of HPP
+
+- Run-of-river power plant
+- Storage power plant
+- Pumped-storage power plant
+- Special types
+  - Tidal power plant
+  - Marine current power plant
+  - Wave power plant
+
+##### Storable amount of energy
+
+$$
+E = V \cdot \rho \cdot g \cdot h_P \cdot \eta_{RTG}
+$$
+
+##### Power Capacity - $P$
+
+$$
+\.E = P = Q \cdot \rho \cdot g \cdot h_P \cdot \eta_{RTG}
+$$
+
+where
+
+$V$ - storage volume in $m^3$
+
+$\rho \approx 1000 kg/m^3$ - density of water
+
+$g = 9.81 m/s^2$ - gravitational constant
+
+$h_P$ - average height drop in $m$
+
+$\eta_{RTG}$ - efficiency of pipelines, turbines and generators in reconversion
+
+#### Water Turbines
+
+```mermaid
+stateDiagram-v2
+
+    state "Water Turbines" as WT
+    state "Impulse Turbine" as IT
+    state "Reaction Turbine" as RT
+
+    state "Pelton" as Pe
+    state "Turgo" as Tu
+    state "Ossberger" as Os
+    state "Water wheels" as WW
+
+    state "Kaplan" as Ka
+    state "Pipe" as Pi
+    state "Propeller" as Pr
+    state "Francis" as Fr
+
+    WT --> IT
+    WT --> RT
+
+    IT --> Pe
+    IT --> Tu
+    IT --> Os
+    IT --> WW
+
+    RT --> Ka
+    RT --> Pi
+    RT --> Pr
+    RT --> Fr
+```
+
+- Impulse Turbine
+  - No pressure difference between above and
+below the impeller => uses kinetic energy of water
+  - Use in storage power plants
+- Reaction Turbine
+  - Higher pressure above than below the impeller => uses pressure
+  - Use in run-of-river power stations; pumped storage (Francis)
+
+## Utilization of Biomass, Geothermal Energy
+
+### Biomass
+
+#### Macro
+
+- phytomass and zoomass living in nature (plants and animals)
+- residues byproducts and waste products
+- dead phytomass and zoomass
+- others
+
+#### Cellular
+
+- cellulose - $C_6H_{10}O_5$
+- lignin
+- hemicellulose
+
+#### Generation via photosynthesis
+
+$$
+H_2O + CO_2 + Auxiliary\ Materials + \Delta E \rarr C_kH_mO_n + H_2O + O_2 + Metabolic\ Products
+$$
+
+$Auxiliary\ Products$ - chlorophylls, phycobiline, carotenoids, bacteriorhodopsin
+
+#### Utilization
+
+```mermaid
+stateDiagram-v2
+
+    state "Raw Biomass" as RBM
+    state "Combustion" as Cb
+    state "Thermo-chemical refining processes" as TCRP
+    state "Physical-chemical refining processes" as PCRP
+    state "Bio-chemical refining processes" as BCRP
+
+    state "Gasification" as Ga
+    state "Pyrolisis" as Py
+    state "Carbonization" as Ca
+
+    state "Mechanical squeezing" as Ms
+    state "Extraction using solvents" as Es
+
+    state "Alcoholic fermentation" as Af
+    state "Anaerobic degradation" as AnD
+    state "Aerobic degradation" as AeD
+
+    RBM --> Cb
+    RBM --> TCRP
+    RBM --> PCRP
+    RBM --> BCRP
+
+    TCRP --> Ga
+    TCRP --> Py
+    TCRP --> Ca
+
+    PCRP --> Ms
+    PCRP --> Es
+
+    BCRP --> Af
+    BCRP --> AnD
+    BCRP --> AeD
+
+```
+- Gasification
+  - biogenic solid fuels to flammable gases
+  - at high temperatures
+  - further conversion to liquid fuel possible
+- Pyrolisis
+  - biogenic solid fuels to liquid components
+  - at high temperatures
+  - anaerobic
+- Carbonization
+  - biogenic solid fuels into refined solid fuels
+  - through thermal decomposition
+  - anaerobic
+- Physical-chemical refining processes
+  - plant oil-based bioenergy carriers
+  - mechanical squeezing or extraction using solvents
+- Alcoholic fermentation
+  - organic mass in an aqueous environment to bioethanol
+  - alcoholic fermentation by yeast bacteria
+- Anaerobic degradation
+  - organic matter to biogas
+  - 2/3 methane
+- Aerobic degradation
+  - oxidation of biomass to carbon dioxide (composting)
+  - releases heat
+  - powers heat pumps
+  
+#### Bioenergy carriers
+
+```mermaid
+stateDiagram-v2
+
+    state "Bioenergy" as BE
+    state "Solid bioenergy carriers" as So
+    state "Liquid bioenergy carriers" as Lq
+    state "Gaseous bioenergy carriers" as Gs
+
+    state "Wood" as Wd
+    state "Wood products" as Wp
+    state "Biowaste" as Bw
+    state "Straw" as St
+    state "Energy crops" as Ec
+
+    state "Plant oils" as Po
+    state "Biodiesel" as Bd
+    state "Bioethanol" as Be
+    state "Biomass-to-liquid fuel (BtL fuel)" as BtL
+    
+    state "Biogas" as Bg
+    state "Synthesis gas from biomass" as BtG
+
+    BE --> So
+    BE --> Lq
+    BE --> Gs
+
+    So --> Wd
+    So --> Wp
+    So --> Bw
+    So --> St
+    So --> Ec
+
+    Lq --> Po
+    Lq --> Bd
+    Lq --> Be
+    Lq --> BtL
+
+    Gs --> Bg
+    Gs --> BtG
+
+```
+
+#### Biomass in Germany
+
+- 55% of total renewable energy (2021)
+- 21.6% of renewable energy for electricity generation (2021)
