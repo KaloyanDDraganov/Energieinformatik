@@ -1468,6 +1468,7 @@ $\implies$ wind power plants are getting bigger and higher
 
 ```mermaid
 stateDiagram-v2
+  direction LR
 
     state "Rotor" as R
     state "Transmission" as T
@@ -2170,4 +2171,162 @@ stateDiagram-v2
   FC --> EC
 
 ```
+
+###### Electrostatic capacitors
+
+- two metal electrodes
+- dielectric
+  - ceramic
+  - film (plastic)
+  - paper
+  
+###### Electrostatic capacitors (e-caps)
+
+- polarized
+  - positive and negative pole
+- anode - metallic electrode
+- cathode - electrolyte
+- pro
+  - relatively high capacitance
+
+###### Electro-chemical capacitors
+
+- electrolyte + porous electrode
+- symmetrical - electrodes of same material
+- assymetrical
+- pro
+  - biggest energy density of all capacitors
+
+###### Capacitors applications
+
+- automotive
+- electric drive trains
+- wind power plant
+- aerospace
+- telecommunications
+- robotics
+- lifts
+- consumer electronics
+- systems requiring uninterrupted power
+
+###### Capacitors Evaluation
+
+- pros
+  - good for many cycles
+  - fast charging
+  - work at low temperatures
+  - high specific power
+- cons
+  - low specific energy density
+  - high self-discharge
+  - low cell voltage
+  - high specific costs
+
+##### Superconducting magnetic energy storages (SMES)
+
+Energy storage in the magnetic field of a superconductive coil $\implies$  No ohmic losses
+
+Energy stored in a SMES:
+
+$$
+E_{SMES} = \frac{1}{2} \cdot L \cdot I^2
+$$
+
+where
+
+$E_{SMES}$ - energy in $J$
+
+$L$ - inductance in Henry
+
+$I$ - current in Ampere
+
+Applications:
+
+- short-term storage (short-term grid stabilization)
+- grid stabilization or maintenance of voltage quality 
+- securing the power supply in stand-alone systems 
+- uninterruptible power supply
+- flicker compensation
+
+#### Electrodynamic storage
+
+##### Redox reaction
+
+Oxidation - loss of electrons
+
+$$
+A \rarr A^+ + e^-
+$$
+
+Reduction - gain of electrons
+
+$$
+B + e^- \rarr B^-
+$$
+
+Redox reaction - electron transfer
+
+$$
+A + B \rarr A^+ + B^-
+$$
+
+##### Electrochemical cells
+
+- primary battery (primary cell)
+  - irreversible process
+- rechargeable battery/accumulator (secondary cell)
+  - reversibly upon application of current
+- fuel cell (tertiary cell)
+  - chemical carries supplied externally (e.g. hydrogen)
+
+###### Batteries
+
+- lead-acid
+  - cheap
+  - low energy density
+- sodium-sulphur
+  - high energy density/capacity
+  - no self-discharge
+  - high operating temperature
+- lithium-ion
+  - high energy density
+  - low self-discharge
+  - degradation
+  - expensive
+  - moderate discharge current
+- redox flow
+  - electrolyte stored outside cell
+
+###### Fuel cells
+
+- pros
+  - environmentally friendly
+  - no moving parts
+  - quiet
+  - efficient
+- cons
+  - hydrogen generation is very inefficient
+
+#### Sectoral energy storage
+
+_Sectoral energy storages are energy storages that are purely used in an energy sector. The charge and discharge occur bidirectionally in the same sector._
+
+Examples:
+- electricity storage technologie
+- heat storages
+- fuel tanks
+- gas tanks
+
+#### Cross-sectoral energy storages
+
+_Cross-sectoral energy storages are energy storages that are used in one or more energy sectors and that work uni- or bi-directionally. The charge and discharge do not necessarily occur in the same sector._
+
+Examples:
+- power-to-heat
+- power-to-gas
+- power-to-liquid
+- flexible cogeneration (CHP)
+- electromobility
+
+### Energy Transmission
 
