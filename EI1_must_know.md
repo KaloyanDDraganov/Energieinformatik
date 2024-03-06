@@ -1719,3 +1719,455 @@ stateDiagram-v2
 
 - 55% of total renewable energy (2021)
 - 21.6% of renewable energy for electricity generation (2021)
+
+### Geothermal
+
+#### Source
+
+- radioactive decay of
+  - $U^{235}$, $U^{238}$ and $K^{40}$
+- 99% of the earth is hotter than 1000°C
+- ca. 90% of the earth's crust are hotter than 100°C
+- at depths between 0 and 1 km temperatures are usually far below 100°C
+
+#### Temperature gradient
+
+- 35-40K per km of depth
+- heat anomalies exist
+  - potential for electricity generation
+- low heat flow density from the earth's interior
+- need to prevent rapid cooling of respective earth body
+
+#### Geothermal Sources
+
+```mermaid
+stateDiagram-v2
+
+    state "Geothermal Sources" as GS
+    state "High-enthalpy deposits" as HED
+    state "Low-enthalpy deposits" as LED
+
+    state "Thermal water application" as TWA
+    state "Hot dry rock method (petrothermal geothermal energy)" as HDR
+    state "Deep geothermal borehole probe" as DGBP
+
+    state "Hydrothermal geothermal energy" as HGE
+    state "Geothermal energy from tunnels" as GEfT
+    state "Geothermal energy from mining facilities" as GEfmF
+
+  GS --> HED
+  GS --> LED
+
+  HED --> TWA
+  HED --> HDR
+  HED --> DGBP
+
+  LED --> HGE
+  LED --> GEfT
+  LED --> GEfmF
+
+```
+
+##### High enthalpy
+  
+- vulcanic areas - utilization of heat anomalies
+  - industrial-use steam
+  - electricity generation
+  - local and district heating
+- may or may not naturally contain thermal water
+- high pressures
+  - has to be maintained
+  - pump water (back)
+- high temperatures (several hundred °C)
+- hot dry rock (petrothermal) method
+  - _injection well_
+  - _conveyor_ or _production well_
+
+###### Deep geothermal borehole probe
+  - closed system - prevents mineral contamination
+  - 2-3 km deep well
+  - coaxial tube
+    - annulus - cold medium flows downwards
+    - riser - reheated medium flows upwards
+  - pros
+    - no contant with ground water
+  - cons
+    - lower power compared to open systems - less area for heat exchange
+  
+##### Low enthalpy
+
+- in non-vulcanic areas
+- use fluids - hot water aquifers
+- water flows between _injection_ and _delivery well_ naturally
+- temperatures in range 80-160 °C
+  - 100 °C lower economic boundary
+- pros
+  - widespread
+  - usable for hear and electricity generation
+- cons
+  - drilling expensive
+  - geological risks
+  - mineral precipitation - resolidification
+
+#### Geothermal heating plants
+
+- temperatures below 100 °C sufficient
+- depths of ca. 2 km in Germany
+- feed pump brings hot water to the surface
+- water highly salty and carrying radioactive materials - use a heat exchanger
+- medium pumped into local or district heating network
+
+#### Geothermal electricity generation
+
+- direct use of steam
+  - steam strongly corrosive
+- flash power plants
+  - partial expansion of hot, pressurized deep thermal water
+  - steam drives turbine
+- Organic Rankine Cycles (ORC-) power plants
+  - usable below 80 °C
+  - medium with lower evaporation temperature - isopentane PF5050 (30 °C)
+- Kalina power plants
+  - mix of water and ammoniac
+  - better thermodynamic process characteristics
+
+#### Efficiency
+
+- heating plant - ca. 54%
+- electricity generation - 6%
+- cogeneration 
+  - useful heat - 12%
+  - electricity - 6%
+
+#### Geothermal energy in Germany
+- ca. 4% of renewables in total energy mix (2021)
+- 0% of renewable electricity mix (2021)
+- ca. 9,8% of renewable heating mix (2021)
+
+### Energy Storage
+
+#### Residual load
+
+Load that has to be covered by conventional power plants after deduction of the feed-in from renewable energies and heat-controlled CHP-plants.
+
+$$
+P_{Residual\ load} = P_{Total\ load} - P_{Renewables + heat-controlled\ CHP}
+$$
+
+- positive residual load
+  - intermittent renewable feed-in cannot cover the current load
+- negative residual load
+  - intermittent renewable supply greater than current load
+
+German residual load exhibits a decreasing tendency - need for storage
+
+#### How to balance energy generation and consumption
+
+- generation and load management
+- transport
+- storage
+
+#### Thermal storage
+
+```mermaid
+stateDiagram-v2
+
+    state "Thermal Storage" as TS
+    state "Thermal energy" as TE
+    state "Chemical energy" as CE
+
+    state "Sensible heat" as SH
+    state "Latent heat" as LH
+
+    state "Thermochemical heat" as TCH
+
+    state "Liquid (water)" as Lq
+    state "Solid body (rock)" as SB
+    state "Aquifer" as Aq
+
+    state "Solid-liquid (melting)" as SL
+    state "Liquid-gaseous (steam)" as LG
+
+    state "Sorption" as So
+    state "Reaction heat" as RH
+
+    TS --> TE
+    TS --> CE
+
+    TE --> SH
+    TE --> LH
+
+    CE --> TCH
+
+    SH --> Lq
+    SH --> SB
+    SH --> Aq
+
+    LH --> SL
+    LH --> LG
+
+    TCH --> So
+    TCH --> RH
+
+```
+
+#### Sensible heat storage system
+
+Recall [heat](#heat).
+
+- water tank
+  - central water storage
+  - seasonal water storage
+
+#### Latent heat storage
+
+- utilization of enthalpy during melting and vaporization of a storage material
+- latent heat added during melting and released during freezing
+
+Phase transitions:
+
+| src $\darr$ dst $\rarr$ | solid      | liquid       | gaseous       |
+|---------------------------|------------|--------------|---------------|
+| **solid**                 |            | melting      | sublimination |
+| **liquid**                | freezing   |              | vaporization  |
+| **gaseous**               | deposition | condensation |               |
+
+#### Enthalpy of melting
+
+Temperature does not change during the melting when heat is added
+
+##### Heat of melting
+
+$$
+Q = m \cdot \lambda_S
+$$
+
+where
+
+$m$ - mass in $kg$
+
+$\lambda_S$ - specific heat of fusion in $kJ/kg$
+
+#### Enthalpy of vaporization
+
+During vaporization, the temperature does not change when adding heat
+
+##### Heat of vaporization
+
+$$
+Q = m \cdot \lambda_D
+$$
+
+where
+
+$m$ - mass in $kg$
+
+$\lambda_D$ - specific heat of vaporization in $kJ/kg$
+
+#### Phase change materials (PCM)
+
+```mermaid
+stateDiagram-v2
+
+  state "Phase change materials (PCM)" as PCM
+  state "Organic PCM" as O
+  state "Non-organic PCM" as NO
+  state "Eutectic" as E
+
+  state "Paraffins" as Pr
+  state "Non-paraffins" as NPr
+
+  state "Salt hydrates" as SH
+
+  state "Organic" as Org
+  state "Non-organic" as NOrg
+
+  PCM --> O
+  PCM --> NO
+  PCM --> E
+
+  O --> Pr
+  O --> NPr
+
+  NO --> SH
+
+  E --> Org
+  E --> NOrg
+
+```
+
+Eutectic: Combination of substances with a certain mixing ratio at which the melting point of the eutectic mixture is lower than that of the pure substances; Salt mixtures.
+
+#### Thermochemical heat storage system
+
+##### Sorption heat storage system
+
+- Desorption
+  - stores desorption heat
+  - gives off condensation heat
+- Adsorption
+  - stores vaporization heat
+  - gives off adsorption heat
+
+##### Reaction heat storage
+
+Basic principle: reversible gas-solid reaction
+
+$$
+A+B \rightleftharpoons AB + Heat
+$$
+
+##### Power-to-Heat
+
+- heating rod
+- heat pump
+
+Power-to-Heat-to-Power: Thermo-potential storage
+
+##### Carnot battery
+
+Power-to-Heat-to-Power storage
+
+- high-temperature heat pump
+  - water - 50 °C
+  - liquid salt - 500 °C
+- on demand conversion via a heat engine
+- total efficiency - ca. 60%
+
+#### Mechanical storage
+
+- potential energy
+  - pumped-storage power plants
+    - could cover average German el. load for ~34 min
+  - compressed air storage
+- kinetic/rotational energy
+  - flywheel energy storage
+  
+##### Compressed air storage
+
+Work
+
+$$
+W = \int_{V_1}^{V_2} p\ dV
+$$
+
+where
+
+$W$ - work in $J$
+
+$V$ - volume in $m^3$
+
+$P$ - pressure in $bar$
+
+Recall [state of ideal gas](#state-of-ideal-gas).
+
+Classification:
+
+```mermaid
+stateDiagram-v2
+
+  state "Compressed air storage" as CAS
+  state "Work medium: Air" as A
+  state "Work medium: Fluid" as F
+
+  state "Diabatic compressed air storage" as D
+  state "Adiabatic compressed air storage" as Ad
+  state "Uncooled adiabatic com- pressed air storage" as U
+
+  state "Oil-hydraulics and pneu- matics (BOP-A)" as OA
+  state "Oil-hydraulics and pneu- matics (BOP-B)" as OB
+
+  CAS --> A
+  CAS --> F
+
+  A --> D
+  A --> Ad
+  A --> U
+
+  F --> OA
+  F --> OB
+
+```
+
+##### Flywheel energy storage
+
+Kinetic energy of a rotating body:
+
+$$
+E_{kin} = \frac{1}{2} \cdot J \cdot \omega^2
+$$
+
+where
+
+$J$ - moment of inertia in $kg\ m^3$
+
+$\omega$ - angular velocity in $U/min$
+
+Efficiency - 90-95%
+Discharge rate - up to 20% in 1 h
+
+#### Electrodynamic storage
+
+##### Capacitors
+
+- a capacitor consists of two conductors separated by a non-conductive region
+- storage of electrical energy in an electrical field
+- a capacitor has the capacitance of 1 $F$ (farad) when charged with a current of $1A$ in $1\ s$ up to $1V$.
+  
+$$
+1F = 1\ As/V
+$$
+
+Maximum capacity:
+
+$$
+E_{capacitor} = \frac{1}{2} \cdot C \cdot U^2
+$$
+
+where
+
+$C$ - capacitance in Farad $[F]$
+
+$U$ - voltage in $V$
+
+Taxonomy:
+
+```mermaid
+stateDiagram-v2
+
+  state "Capacitors" as C
+
+  state "Fixed capacitors" as FC
+  state "Variable Capacitors" as VC {
+    state "Rotary" as R
+    state "Trimmer" as T
+  }
+
+  state "Electrostatic" as ES {
+    state "Misc - vacuum, glass, mica" as M
+    state "Ceramic" as Cr
+    state "Film" as Fm
+    state "Metallized paper" as MP
+  }
+
+  state "Electrolytic" as EL {
+    state "Aluminium electrolytic" as Al
+    state "antalum electrolytic" as Ta
+    state "Niobium electrolytic" as Ni
+  }
+
+  state "Electro-chemical" as EC {
+    state "Supercapacitors (Double layer cap.)" as SDL
+    state "Supercapacitors (Pseudo cap.)" as SPS
+    state "Supercapacitors (Hybrid cap.)" as SHS
+  }
+
+  C --> FC
+  C --> VC
+
+  FC --> ES
+  FC --> EL
+  FC --> EC
+
+```
+
