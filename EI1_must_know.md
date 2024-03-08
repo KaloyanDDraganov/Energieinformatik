@@ -2330,3 +2330,357 @@ Examples:
 
 ### Energy Transmission
 
+#### Enegrgiewirtschaftsgesetz (EnWG)
+
+_Grid-based supply of the general public with electricity and gas which is “as secure, affordable, consumer-friendly, efficient, and environment friendly” as possible and which is increasingly based on renewable energies._ - energy trilemma
+
+_Ensuring an effective and undistorted competition in the supply of electricity and gas as well as the long-term efficient and reliable operation of energy supply networks._
+
+#### Types of electricity transmission systems
+
+Recall [alternating current](#alternating-current-ac).
+
+- single-phase AC transmission systems
+  - traction power
+  - electric railways
+- three-phase AC transmission systems
+  - national grid
+- high-voltage direct current (HVDC) electric power transmission systems
+
+#### Single-phase AC vs three-phase AC
+
+Let $\phi$ be the phase angle between voltage and current: $\phi = \phi_U - \phi_I$
+
+$\phi = 0°$
+- single-phase AC
+  - instantaneous power fluctuates between $P_{max}$ and $0$
+- three-phase AC
+  - instantaneous power is $P_{max}$
+  
+$-90° < \phi < 0°$
+- single-phase AC
+  - instantaneous power fluctuates around 0 (mostly positive)
+- three-phase AC 
+  - instantaneous power $\in [0, P_{max}]$
+
+$\phi = -90°$
+- single-phase AC
+  - instantaneous power fluctuates around 0
+- three-phase AC
+  - instantaneous power $= 0$
+
+#### HVDC
+
+“Hochspannungs-Gleichstrom-Übertragung” (HGÜ)
+
+$U \le 525\ kV$
+
+- pros
+  - low transmission losses
+  - coupling of asynchronous energy supply grids possible
+- cons
+  - fault finding
+  - hard to create a meshed network
+  - no zero crossing
+
+Utilization:
+- connect remote RES to land
+- grid coupling
+  - prevent cascading overloads
+- controllability of power flows in decentralized grids
+- 
+
+#### HVAC vs HVDC - economic analysis
+
+- HVDC lines are cheaper on longer distances 
+  - less material needed for conductors
+- HVDC terminals are more expensive than those for HVAC
+- breakeven distance
+  - overhead - 600-1000 km
+  - submarine - 50 km
+
+#### Power grid classification
+
+```mermaid
+stateDiagram-v2
+
+  state "Power Grid" as PG
+
+  state "Transmission grid level" as T {
+    state "HVDC" as HVDC {
+      state "up to 525 kV" as 525
+    }
+    state "Extra high-voltage" as EHV {
+      direction LR
+      state "380 kV" as b380
+      state "220 kV" as a220
+    }
+  }
+
+  state "Distribution grid vevel" as D {
+    state "High-voltage" as HV {
+      state "110 kV" as 110
+    }
+    state "Medium-voltage" as MV {
+      direction LR
+      state "30 kV" as c30
+      state "20 kV" as b20
+      state "10 kV" as a10
+    }
+    state "Low-voltage" as LV {
+      state "0.4 kV" as point4
+    }
+  }
+
+  PG --> T
+  PG --> D
+  T --> HVDC
+  T --> EHV
+
+```
+
+#### European synchronous grids
+
+- Continental Europe - ENTSO-E
+- NORDEL - Scandinavia
+- UKTSOA - Great Britain
+- ATSOI - Ireland
+- BALTSOE - Baltic States
+
+> [!TIP]
+Interconnections via HVDC
+
+#### HVDC worldwide
+
+- China
+  - RES in NW
+  - population in E
+  - idea - build HVDC
+- USA
+  - RES in the middle
+  - population on the costs
+  - usually little exchange between E, W and Texas
+  
+#### German power grid
+
+- **L1** - transmission level
+  - HVDC up to 525 kV
+  - EHV - 330 kV, 220 kV
+  - d > 100 km
+  - spans 37 000 km in Germany
+- L2 - transformer level
+- **L3** - distribution level
+  - HV < 110 kV
+  - d < 100 km
+  - trans-regional distrbution, industry
+  - spans 86 000 km in Germany
+- L4 - transformer level
+- **L5** - distribution level
+  - MV - 30 kV - 10 kV
+  - d < 20 km
+  - spans 525 000 km in Germany
+- L6 - transformer level
+- **L7** - distribution level
+  - LV - 400 V
+  - d < 5 km
+  - households, district 
+  - network
+  - spans ca. 1 200 000 km in Germany
+
+How to choose level for a line - load density (sum of all loads for a given area)
+
+#### Topologies in LV grid
+
+- radial
+  - low density
+  - branched lines sharing a common station
+  - connecting large loads results in voltage drops
+  - supply easily interruptible
+- ring
+  - added safety by separation points - intrinsic safety
+- branched
+  - combination between radial and ring
+- mesh
+  - intrinsic safety, voltage stability
+  - low network losses
+  - difficult to black-start
+
+#### German Network Operators
+
+##### TSO - Transmission System Operator
+
+Responsibilities:
+- operation, maintenance and provisioning of trans-regional grid
+- providing non-discriminatory access to distributors and suppliers
+- procuring balancing power
+
+##### German TSOs
+
+- Transnet BW
+- Tennet
+- 50hertz
+- Amprion
+
+> [!TIP]
+> more than 900 control zones in total
+
+##### DSO - Distribution System Operator
+
+Supply the end customers with electricity and gas.
+
+##### German load-generation distribution
+
+- RES (offshore wind) in the N
+- loads (industry) in the S
+> Grid expansion with N-S capacity necessary
+
+#### Challenges for power grids in Europe
+
+- volatility of generation
+- distributed generation
+- transnational electricity trading
+
+Solution approaches:
+- grid expansion (EHV)
+- european coordination on expansion
+- smart grids
+
+#### Ancillary services
+
+> Frequency stability
+>
+> - primary control
+> - secondary control
+> - tertiary control
+
+> Voltage stability
+
+> Operation management
+>
+> - (N-1) criterion:
+> _A network always meets the requirements of the (N-1) criterion if it survives the failure of an operating device with no inadmissible restriction to its function for an accidental, technically possible and operationally reasonable initial situation._
+> - network states
+>   - secure
+>   - vulnerable
+>   - disturbed
+>   - critical
+
+> Supply restoration
+
+> Congestion management
+> - 1 resort measures
+>   - control energy
+>   - countertrading
+>   - redispatch
+>   - interruptible loads
+> - 2 resort
+>   - regulate conventional 
+> PP
+> - 3 resort
+>   - regulate RES and CHP systems (compensation, but no remuneration)
+> - 4 resort
+>   - regulate el. feed-ins (no compensation)
+>   - demand-side management (no compensation)
+
+> [!TIP]
+> Grid congestion management costs are continuously rising in Germany
+
+#### Classification of transmission networks
+
+```mermaid
+stateDiagram-v2
+
+ state "Transmission networks" as TN {
+
+  state "Electrical energy" as EE {
+    direction LR
+    state "Transmission network" as TrN
+    state "Distribution network" as DiN
+  }
+
+  state "Material and substantial energy" as MSE {
+    direction LR
+    state "Water supply" as WS
+    state "Gas grid" as GG
+    state "Local heat network" as LHN
+    state "District heat network" as DHN
+    state "Oil pipeline" as OPL
+  }
+  state "Communications" as Com {
+    direction LR
+    state "Telephone network" as Tel
+    state "Radio network" as Ra
+    state "Cable network" as Cb
+  }
+ }
+
+```
+
+#### Types of gas
+
+> **Low calorific gas (L-gas)**
+> - methane content between 79,8 - 87%
+> high $N$ and $CO_2$ share - sour gas
+
+> **High calorific gas (H-gas)**
+> - methane content between 87 - 99.1%
+> low $N$ and $CO_2$ share
+
+> [!TIP]
+> **German network development plan**
+>
+> Nationwide switch to H-Gas until 2030
+
+#### Gas applications in Germany
+
+- heating
+- mobility
+- energy storage
+- electricity generation
+- chemical industry
+
+> [!TIP]
+> **Gas share in primary energy consumption (2022)**
+>
+> - 24%
+> - share in domestic heating - 40%
+
+> [!TIP]
+> **German gas supply**
+> - 5.5% - domestic production
+> - 94.5% - imports
+
+#### Gas infrastructure in Germany
+
+- gas transmission network
+  - ca. 40 000 km
+  - pressure up to 100 bar
+  - compressor stations every 100 - 200 km
+- gas distribution networks
+- pressure regulation and metering stations
+  - high, medium, low pressure
+    - >1, 0.1-1, <0.1 bar
+- gas storage
+  - Porenspeicher
+  - Kavernenspeicher
+- LNG terminals
+
+#### German gas market areas
+
+Trading Hub Europe
+- 16 TSOs
+- ca. 700 DSOs
+- storage operators
+- trading companies
+
+#### Gas price building
+
+- natural gas tax
+- concession fee
+  - to cover grid operation costs
+
+#### Hydrogen grid
+
+- new (refurbished LNG) terminals
+- $H_2$ blening in natural gas (up to 30% possible)
+
