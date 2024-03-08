@@ -2684,3 +2684,227 @@ Trading Hub Europe
 - new (refurbished LNG) terminals
 - $H_2$ blening in natural gas (up to 30% possible)
 
+#### Heat networks
+
+> **district heating**
+>  - temperatures between 80 - 130°C
+ > - pressure between 16 - 25 bar
+
+> **local heating**
+> - heat generation for individual buildings, small communities
+
+#### Multimodal energy grids
+
+_Cross-domain flexibilization and coupling of energy infrastructures of different energy forms via adequate conversion and coupling processes_
+
+### Energy Economics
+
+#### Energy market liberalization
+
+- 1996: First EU directive on the electricity market liberalization
+- 1998: First EU directive on the gas market - liberalization
+- 1998: Liberalization of German electricity market
+- 2004: Liberalization of German gas market
+- 2005: Amended Energy Industry Act (EnWG) turns EU directives into national law
+
+> [!TIP]
+> **Unbundling**
+> Legal requirement for separation of network and sales at energy supply companies
+
+> [!TIP]
+> **Objecttive of market liberalization**
+> Creating general conditions for competition and free trade in network-bound energies
+
+Characteristics:
+- free supplier choice
+- unbubdling of generation, network, trading, retail
+- non-disctiminatory network access
+- independent regulator
+  - Bundesnetzeagentur (BNetzA) in Germany
+- independent TSOs
+
+Market participants:
+- customers
+- network operators
+- producers
+- suppliers
+- energy exchanges
+- others
+  - agents, brokers, portfolio managers
+
+#### Merit order of energy sources
+
+- cost-optimized order of operation of power plants
+- each produces bids their marginal price
+- market clearance at the price of the last MWh of demand
+
+> [!TIP]
+> **Merit order effect**
+> Most expensive providers are being pushed out of the market (increasingly due to guaranteed feed-in for RES)
+
+> [!TIP]
+>**Missing money problem**
+>
+> Due to the merit order effect, investment costs of PPs needed for balancing power and during peak-times cannot be covered.
+
+#### Electricity price building in Germany
+
+- generation costs - 53%
+- taxes - 27%
+- network charges - 20%
+
+> [!TIP]
+> The share of charges and taxes is growing continuously.
+
+#### Liberalized market taxonomy
+
+```mermaid
+stateDiagram-v2
+
+  state "Spot market" as Sp {
+    state "Electricity exchange" as SEx {
+      direction LR
+      state "Base products" as B
+      state "Peak products" as P
+      state "Hourly products" as H
+    }
+    state "OTC business" as SOTC {
+      state "All businesses" as A
+    }
+  }
+
+  state "Futures market" as Fut {
+    state "Conditional forward transactions" as CF {
+      direction LR
+      state "Electricity exchange" as CFEx {
+      state "Options" as O
+    }
+    state "OTC business" as CFOTC {
+      state "Options, Caps, Floors" as OCF
+    }
+    }
+    state "Unconditional forward transactions" as UF {
+      direction LR
+      state "Electricity exchange" as UFEx {
+      state "Futures" as Fu
+    }
+    state "OTC business" as UFOTC {
+      state "Forwards, Caps" as FC
+    }
+    }
+  }
+
+```
+
+> **Spot market**
+>
+> - physical fulfillment
+> - ca. 2 days after closing date
+
+> **Futures market**
+>
+> - physical and financial fulfillment
+> - later fulfillment (at least one week after closing date)
+
+> **Day-ahead market**
+>
+> - auction trading
+> - hourly products
+> - helps to creaete schedules
+
+> **Intraday market**
+>
+> - continual trading
+> - used to help fulfill schedules
+
+#### European Energy Exchange (EEX)
+
+- HQ in Leipzig
+- delivery locations
+  - DE, AR, FR, CH
+  
+> [!TIP]
+> Arbitrage - free choice, free discretion
+
+#### Other EEX markets
+
+- control reserve market
+- gas market
+- emission allowance market
+  
+### Smart Grid
+
+_The term Smart Grid (intelligent energy supply system) comprises the **networking** and **control** of intelligent generators, storages, consumers, and network operating resources in energy transmission and distribution networks with the help of information and communication technology (ICT)._
+
+Objectives:
+- improved reliability, quality, and security of supply
+- efficient grid operation management
+- participation of consumers in optimizing the system operation
+- significant reduction of environmental impact of the electric supply system
+- etc.
+
+#### Legacy grid vs. Smart grid
+
+> **Legacy grid**
+>
+> - top-down power flow
+> - large, centralized PPs
+> - generation follows consumption
+> - fossil energy sources
+> - central control
+
+> **Smart grid**
+>
+> - bidirectional power flow
+> - small, distributed, PPs
+> - renewable energy sources
+> - consumption follows generation
+> - coordinated energy management
+
+#### Smart distribution
+
+> **Distribution automation**
+>
+> - remote control
+> - **self-healing grid**
+
+> **Smart aggregation**
+>
+> - aggregation of distributed generators, storages and controllable loads
+> - **virtual power plant**
+> - economic benefits
+
+> **Smart metering**
+>
+> - variable tariffs to incentivize market integration of consumers
+> - **load management**
+
+#### Demand response
+
+- old paradigm: generation follows demand
+- new paradigm: consumption follows generation
+
+Classification:
+- manual DR
+  - consumer switches devices on/off manually
+- semi-automated DR
+  - programmable behaviour patterns
+- automated DR
+  - no manual intervention required
+
+Shiftable loads in Germany:
+- industry
+  - 0.5 - 2.8 GW
+- commerce, services
+  - 0.9 - 14.3 GW
+- households
+  - 2 - 24.5 GW
+
+Electricity load (11/14 - 12/15): 49 - 83 GW
+
+#### Information and communication technology for use in the smart grid
+
+Applications:
+- automation and remote control
+- aggregation and coordination of distributed generation
+- smart metering
