@@ -2465,7 +2465,7 @@ Interconnections via HVDC
 
 - **L1** - transmission level
   - HVDC up to 525 kV
-  - EHV - 330 kV, 220 kV
+  - EHV - 380 kV, 220 kV
   - d > 100 km
   - spans 37 000 km in Germany
 - L2 - transformer level
