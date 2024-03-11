@@ -228,7 +228,16 @@ $$
 h = u + p \cdot v
 $$
 
+where 
+
+$U$ - internal energy in $J$
+
+$p$ - pressure in $Pa$
+
+$V$ - volume in $m^3$
+
 Unit: $[J + Pa \cdot m^3] = J$
+
 
 #### Enthalpy of melting
 
@@ -687,7 +696,7 @@ unit - Ohm $\Omega$
 #### Power
 
 $$
-P = I \cdot I
+P = U \cdot I
 $$
 
 unit - Watt $W$
@@ -1282,7 +1291,9 @@ Extraction of electrons from a semiconductor or metal surface through radiation 
 
 - Free electrons from n-zone diffuse into the p-zone → Leaving behind positively charged ions
 - Free holes from p-zone diffuse into the n-zone → Leaving behind negatively charged ions
-- Transition zone between p- and n-zone with reverse charge distribution (i.e. _diffusion buffer_)
+- Transition zone (depletion region) between p- and n-zone with reverse charge distribution (i.e. _diffusion buffer_)
+  - no electrons in the conduction band
+  - no holes on the valence band
 
 ##### Photon hits
 
@@ -1372,6 +1383,16 @@ $\rho$ - air density in $kg/m^3$
 $v_w$ - wind velocity in $m/s$
 
 Utilization of wind energy possible at wind velocities between 3 - 25 $m/s$.
+
+How to derive $P_0$:
+
+$$
+\.{E_{kin}} =  P_0 = \frac{1}{2} \cdot \.m \cdot v_w^2 \implies P_0 = \frac{1}{2} \cdot A \cdot \rho \cdot v_w^3
+$$
+
+since
+
+$\.m = \rho \cdot A \cdot v_w$
 
 #### Power drain in a wind turbine
 
