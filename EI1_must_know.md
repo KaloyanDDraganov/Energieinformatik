@@ -1261,7 +1261,7 @@ Factors influencing efficiency:
 #### Collector efficiency $\eta_C = \frac{collector\ net\ power}{global\ radiation\ power }$
 
 $$
-\eta_C = \frac{\.Q{CN}}{G_{C, dir} \cdot A_C} = \eta_{opt} - \frac{\.Q_L}{G_{C, dir} \cdot A_C}
+\eta_C = \frac{\.Q_{CN}}{G_{C, dir} \cdot A_C} = \eta_{opt} - \frac{\.Q_L}{G_{C, dir} \cdot A_C}
 $$
 
 - $\uarr$ radiation concentration $\implies$ $\uarr$ absorber temperature
@@ -1554,6 +1554,8 @@ where
 
 $V$ - storage volume in $m^3$
 
+$Q = \.V$ - In-/Outflow in $m^3$
+
 $\rho \approx 1000 kg/m^3$ - density of water
 
 $g = 9.81 m/s^2$ - gravitational constant
@@ -1812,7 +1814,7 @@ stateDiagram-v2
     - annulus - cold medium flows downwards
     - riser - reheated medium flows upwards
   - pros
-    - no contant with ground water
+    - no contact with ground water
   - cons
     - lower power compared to open systems - less area for heat exchange
   
@@ -1825,7 +1827,7 @@ stateDiagram-v2
   - 100 °C lower economic boundary
 - pros
   - widespread
-  - usable for hear and electricity generation
+  - usable for heat and electricity generation
 - cons
   - drilling expensive
   - geological risks
@@ -2094,10 +2096,10 @@ stateDiagram-v2
 
   state "Diabatic compressed air storage" as D
   state "Adiabatic compressed air storage" as Ad
-  state "Uncooled adiabatic com- pressed air storage" as U
+  state "Uncooled adiabatic compressed air storage" as U
 
-  state "Oil-hydraulics and pneu- matics (BOP-A)" as OA
-  state "Oil-hydraulics and pneu- matics (BOP-B)" as OB
+  state "Oil-hydraulics and pneumatics (BOP-A)" as OA
+  state "Oil-hydraulics and pneumatics (BOP-B)" as OB
 
   CAS --> A
   CAS --> F
@@ -2126,6 +2128,7 @@ $J$ - moment of inertia in $kg\ m^3$
 $\omega$ - angular velocity in $U/min$
 
 Efficiency - 90-95%
+
 Discharge rate - up to 20% in 1 h
 
 #### Electrodynamic storage
@@ -2161,11 +2164,13 @@ stateDiagram-v2
 
   state "Fixed capacitors" as FC
   state "Variable Capacitors" as VC {
+    direction LR
     state "Rotary" as R
     state "Trimmer" as T
   }
 
   state "Electrostatic" as ES {
+     direction LR
     state "Misc - vacuum, glass, mica" as M
     state "Ceramic" as Cr
     state "Film" as Fm
@@ -2173,12 +2178,14 @@ stateDiagram-v2
   }
 
   state "Electrolytic" as EL {
+     direction LR
     state "Aluminium electrolytic" as Al
-    state "antalum electrolytic" as Ta
+    state "Antalum electrolytic" as Ta
     state "Niobium electrolytic" as Ni
   }
 
   state "Electro-chemical" as EC {
+     direction LR
     state "Supercapacitors (Double layer cap.)" as SDL
     state "Supercapacitors (Pseudo cap.)" as SPS
     state "Supercapacitors (Hybrid cap.)" as SHS
@@ -2201,7 +2208,7 @@ stateDiagram-v2
   - film (plastic)
   - paper
   
-###### Electrostatic capacitors (e-caps)
+###### Electrolytic capacitors (e-caps)
 
 - polarized
   - positive and negative pole
@@ -2296,9 +2303,9 @@ $$
 - primary battery (primary cell)
   - irreversible process
 - rechargeable battery/accumulator (secondary cell)
-  - reversibly upon application of current
+  - reversible upon application of current
 - fuel cell (tertiary cell)
-  - chemical carries supplied externally (e.g. hydrogen)
+  - chemical carriers supplied externally (e.g. hydrogen)
 
 ###### Batteries
 
@@ -2333,7 +2340,7 @@ $$
 _Sectoral energy storages are energy storages that are purely used in an energy sector. The charge and discharge occur bidirectionally in the same sector._
 
 Examples:
-- electricity storage technologie
+- electricity storage technology
 - heat storages
 - fuel tanks
 - gas tanks
@@ -2409,7 +2416,6 @@ Utilization:
 - grid coupling
   - prevent cascading overloads
 - controllability of power flows in decentralized grids
-- 
 
 #### HVAC vs HVDC - economic analysis
 
@@ -2563,7 +2569,7 @@ Supply the end customers with electricity and gas.
 
 Solution approaches:
 - grid expansion (EHV)
-- european coordination on expansion
+- European coordination on expansion
 - smart grids
 
 #### Ancillary services
@@ -2641,11 +2647,11 @@ stateDiagram-v2
 
 > **Low calorific gas (L-gas)**
 > - methane content between 79,8 - 87%
-> high $N$ and $CO_2$ share - sour gas
+> - high $N$ and $CO_2$ share - sour gas
 
 > **High calorific gas (H-gas)**
 > - methane content between 87 - 99.1%
-> low $N$ and $CO_2$ share
+> - low $N$ and $CO_2$ share
 
 > [!TIP]
 > **German network development plan**
@@ -2723,7 +2729,7 @@ _Cross-domain flexibilization and coupling of energy infrastructures of differen
 #### Energy market liberalization
 
 - 1996: First EU directive on the electricity market liberalization
-- 1998: First EU directive on the gas market - liberalization
+- 1998: First EU directive on the gas market liberalization
 - 1998: Liberalization of German electricity market
 - 2004: Liberalization of German gas market
 - 2005: Amended Energy Industry Act (EnWG) turns EU directives into national law
@@ -2733,7 +2739,7 @@ _Cross-domain flexibilization and coupling of energy infrastructures of differen
 > Legal requirement for separation of network and sales at energy supply companies
 
 > [!TIP]
-> **Objecttive of market liberalization**
+> **Objective of market liberalization**
 > Creating general conditions for competition and free trade in network-bound energies
 
 Characteristics:
@@ -2831,7 +2837,7 @@ stateDiagram-v2
 >
 > - auction trading
 > - hourly products
-> - helps to creaete schedules
+> - helps to create schedules
 
 > **Intraday market**
 >
@@ -2877,7 +2883,7 @@ Objectives:
 > **Smart grid**
 >
 > - bidirectional power flow
-> - small, distributed, PPs
+> - small, distributed PPs
 > - renewable energy sources
 > - consumption follows generation
 > - coordinated energy management
